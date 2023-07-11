@@ -1,0 +1,7 @@
+# Ignored Folders
+/node_modules
+/dist
+
+# Ignored Files
+package-*
+yarn*
