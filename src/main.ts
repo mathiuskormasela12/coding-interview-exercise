@@ -40,3 +40,81 @@ export const fizzBuzzRecursive: FizzBuzzRecursive = (init, total, result): FizzB
     return fizzBuzzRecursive(init + 1, total, result)
   }
 }
+
+// Palindrom
+export const palindromLooping = (text: string): boolean => {
+  let reversedText = ''
+  for (let index = (text.length - 1); index >= 0; index--) {
+    reversedText += text.charAt(index).toLowerCase()
+  }
+  if (text.toLowerCase() === reversedText) {
+    return true
+  } else {
+    return false
+  }
+}
+
+export const palindromLoopingWithoutReverseText = (text: string): boolean => {
+  for (let index = 0; index < (Math.floor(text.length / 2)); index++) {
+    const firstText = text.charAt(index).toLowerCase()
+    const endText = text.charAt((text.length - 1) - index).toLowerCase()
+
+    if (firstText !== endText) {
+      return false
+    }
+  }
+
+  return true
+}
+
+export const isPlaindrom = (text: string): boolean => {
+  return palindromRecursive(text, 0)
+}
+
+const palindromRecursive = (text: string, index: number): boolean => {
+  if (index < text.length / 2) {
+    const firstText = text.charAt(index).toLowerCase()
+    const endText = text.charAt((text.length - 1) - index).toLowerCase()
+
+    if (firstText !== endText) {
+      return false
+    } else {
+      return palindromRecursive(text, index + 1)
+    }
+  } else {
+    return true
+  }
+}
+
+export const factorial = (total: number): number => {
+  let result = 1
+
+  for (let index = total; index >= 1; index--) {
+    result *= index
+  }
+  return result
+}
+
+// export const factorialRecursive = (total: number): number => {
+//   if (total >= 1) {
+//     return total * factorialRecursive(total - 1)
+//   } else {
+//     return 1
+//   }
+// }
+
+// export const factorialRecursive = (total: number, value: number): number => {
+//   if (value <= 0) {
+//     return total
+//   } else {
+//     return factorialRecursive(total * value, value - 1)
+//   }
+// }
+
+export const factorialRecursive = (total: number, value: number): number => {
+  if (value <= 0) {
+    return total
+  } else {
+    return factorialRecursive(total * value, value - 1)
+  }
+}
